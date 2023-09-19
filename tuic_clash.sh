@@ -200,6 +200,8 @@ EOF
   systemctl enable --now tuic_clash_$port && sleep 0.2
   if [[ -n $(systemctl status tuic_clash_$port 2>/dev/null | grep -w active) && -f $serverConfPath ]]; then
     echoContent green "Tuic(Clash内核) 安装成功！"
+    echoContent skyBlue "在Clash Meta 中的配置如下"
+    cat $clientConfPath
   else
     echoContent red "Tuic 安装失败！请运行systemctl status tuic_clash_${port}查看错误信息！"
     exit 1
