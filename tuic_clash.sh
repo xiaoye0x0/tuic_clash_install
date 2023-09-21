@@ -3,7 +3,7 @@
 export LANG=en_US.UTF-8
 echoType='echo -e'
 
-installPath="/opt/test/tuic_clash"
+installPath="/opt/tuic_clash"
 corePath=${installPath}/clash_core
 
 
@@ -44,12 +44,12 @@ installPrecheck(){
   if [ -f "/usr/bin/apt-get" ]; then
     apt-get update -y
     apt-get install -y curl socat jq
-    mkdir $installPath
+    mkdir -p $installPath
   else
     yum update -y
     yum install -y epel-release
     yum install -y curl socat jq
-    mkdir $installPath
+    mkdir -p $installPath
   fi
 }
 
